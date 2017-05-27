@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.leonardescorcia.personasmaterial.DetallePersona">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/appbar"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/collapsing_toolbar"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleMarginEnd="64dp"
+            >
+
+            <ImageView
+                android:id="@+id/fotoPersona"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                android:contentDescription="PersonasMaterial"
+                app:layout_collapseMode="pin"
+                />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar2"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:layout_collapseMode="pin"
+
+                >
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,20 +1,18 @@
 package com.example.leonardescorcia.personasmaterial;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 /**
- * Created by LabSoftware on 13/05/2017.
+ * Created by Lab Software 1 on 20/05/2017.
  */
 
 public class AdaptadorPersona extends RecyclerView.Adapter<AdaptadorPersona.PersonaViewHolder> {
@@ -22,9 +20,9 @@ public class AdaptadorPersona extends RecyclerView.Adapter<AdaptadorPersona.Pers
     private ArrayList<Persona> personas;
     private OnPersonaClickListener clickListener;
 
-    public AdaptadorPersona(ArrayList<Persona> personas, OnPersonaClickListener clickListener ){
-        this.personas = personas;
-        this.clickListener = clickListener;
+    public AdaptadorPersona(ArrayList<Persona> personas, OnPersonaClickListener clickListener){
+        this.personas=personas;
+        this.clickListener=clickListener;
     }
 
     @Override
@@ -35,15 +33,17 @@ public class AdaptadorPersona extends RecyclerView.Adapter<AdaptadorPersona.Pers
 
     @Override
     public void onBindViewHolder(AdaptadorPersona.PersonaViewHolder holder, int position) {
-        final Persona p = personas.get(position);
-        holder.foto.setImageResource(Integer.parseInt(p.getIdFoto()));
+            final Persona p = personas.get(position);
+            //holder.foto.setImageResource(Integer.parseInt(p.getUrlfoto()));
+        Picasso.with(holder.view.getContext()).load(p.getUrlFoto()).into(holder.foto);
+
         holder.cedula.setText(p.getCedula());
-        holder.nombre.setText(p.getNombre());
-        holder.apellido.setText(p.getApellido());
+            holder.nombre.setText(p.getNombre());
+            holder.apellido.setText(p.getApellido());
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 clickListener.onPersonaClick(p);
             }
         });
@@ -63,12 +63,11 @@ public class AdaptadorPersona extends RecyclerView.Adapter<AdaptadorPersona.Pers
 
         public PersonaViewHolder(View itemView) {
             super(itemView);
-            view = itemView;
+            view= itemView;
             foto = (ImageView)itemView.findViewById(R.id.foto);
-            cedula = (TextView)itemView.findViewById(R.id.txtCedula);
-            nombre = (TextView)itemView.findViewById(R.id.txtNombre);
-            apellido = (TextView)itemView.findViewById(R.id.txtApellido);
-
+            cedula = (TextView)itemView.findViewById(R.id.txtCedulaP);
+            nombre = (TextView) itemView.findViewById(R.id.txtNombreP);
+            apellido = (TextView)itemView.findViewById(R.id.txtApellidoP);
         }
     }
 

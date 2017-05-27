@@ -7,4 +7,9 @@
     <string name="titulo_registro">REGISTRO</string>
     <string name="guardar">GUARDAR</string>
     <string name="borrar">BORRAR</string>
+    <string name="mensaje_error_cedula">Digite la cédula</string>
+    <string name="mensaje_error_nombre">Digite el nombre</string>
+    <string name="mensaje_error_apellido">Digite el apellido</string>
+    <string name="mensaje_exitoso_guardar">Persona Guardada Exitosamente!!</string>
+
 </resources>
