@@ -5,4 +5,6 @@
     <string name="nombre">Nombre</string>
     <string name="apellido">Apellido</string>
     <string name="titulo_registro">REGISTRO</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="borrar">BORRAR</string>
 </resources>

@@ -76,16 +76,17 @@ public class AgregarPersona extends AppCompatActivity {
     }
 
     public void guardar(View v){
-        String foto, cedula, nombre, apellido;
+        String urlFoto, cedula, nombre, apellido, idFoto;;
         Persona p;
 
         if (validarTodo()){
-            foto = String.valueOf(fotoAleatoria());
+            urlFoto = String.valueOf(fotoAleatoria());
             cedula = cajaCedula.getText().toString();
             nombre = cajaNombre.getText().toString();
             apellido = cajaApellido.getText().toString();
+            idFoto = "prueba";
 
-            p = new Persona(foto, cedula, nombre, apellido);
+            p = new Persona(urlFoto, cedula, nombre, apellido, idFoto);
             p.guardar(getApplicationContext());
 
             InputMethodManager imp = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
