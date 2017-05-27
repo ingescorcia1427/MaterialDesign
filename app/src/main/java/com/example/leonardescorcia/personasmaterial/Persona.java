@@ -3,22 +3,46 @@ package com.example.leonardescorcia.personasmaterial;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.UUID;
+
 /**
  * Created by LabSoftware on 12/05/2017.
  */
 
 public class Persona {
-    String foto, cedula, nombre, apellido;
+    private String uuid, urlFoto, cedula, nombre, apellido, idFoto;
 
-    public Persona(String foto, String cedula, String nombre, String apellido) {
-        this.foto = foto;
+    public Persona(){
+
+    }
+
+
+    public Persona(String urlFoto, String cedula, String nombre, String apellido, String idFoto) {
+        this.uuid = UUID.randomUUID().toString();
+        this.urlFoto = urlFoto;
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.idFoto = idFoto;
     }
 
-    public String getFoto() {
-        return foto;
+    //Constructor
+    public Persona(String uuid, String urlFoto, String cedula, String nombre, String apellido, String idFoto) {
+        this.uuid = uuid;
+        this.urlFoto = urlFoto;
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.idFoto = idFoto;
+    }
+
+    //GET
+    public String getUuid() {
+        return uuid;
+    }
+
+    public String getUrlFoto() {
+        return urlFoto;
     }
 
     public String getCedula() {
@@ -33,9 +57,18 @@ public class Persona {
         return apellido;
     }
 
+    public String getIdFoto() {
+        return idFoto;
+    }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+
+    //SET
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
     }
 
     public void setCedula(String cedula) {
@@ -50,6 +83,11 @@ public class Persona {
         this.apellido = apellido;
     }
 
+    public void setIdFoto(String idFoto) {
+        this.idFoto = idFoto;
+    }
+
+
     public void guardar(Context contexto) {
         //Declarar variables
         SQLiteDatabase db;
@@ -61,10 +99,12 @@ public class Persona {
 
         //Insertar forma 1
         sql = "INSERT INTO Personas values('"
-                +this.getFoto()+"','"
+                +this.getUuid()+"','"
+                +this.getUrlFoto()+"','"
                 +this.getCedula()+"','"
                 +this.getNombre()+"','"
-                +this.getApellido()+"')";
+                +this.getApellido()+"','"
+                +this.getIdFoto()+"')";
 
         db.execSQL(sql);
 
